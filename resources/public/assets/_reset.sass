@@ -1,0 +1,374 @@
+html
+  margin: 0
+  padding: 0
+  font-size: 100%
+  font-weight: normal
+  font-style: normal
+  font-family: sans-serif
+  vertical-align: baseline
+  background: transparent
+  box-sizing: border-box
+
+body
+  @extend html
+  line-height: 1
+
+// --- コンテンツセクショニング
+
+// Article, Body要素の連絡先情報
+address
+  @extend html
+
+// 自己完結した構成物。独立して配信、再利用が可能なもの
+article
+  @extend html
+  display: block
+
+// ドキュメントのメインコンテンツとの関連性が希薄なもの
+aside
+  @extend html
+  display: block
+
+// 直近のセクショニングコンテンツ・ルートのフッター。著作権情報
+footer
+  @extend html
+  display: block
+
+// イントロダクション、ナビゲーション、ロゴ、セクション見出しなど
+header
+  @extend html
+  display: block
+
+// 見出しを複数レベル使い分けて１つの見出しを構成する場合に、それらのh要素をグループ化(廃止予定)
+//hgroup
+//  @extend html
+
+// 他のドキュメントや、特定位置に移動するためのナビゲーション(メニュー、目次)
+nav
+  @extend html
+  display: block
+
+// ドキュメントのアウトライン構造記述のための要素
+section
+  @extend html
+  display: block
+
+// ドキュメントの見出し要素
+h1,h2,h3,h4,h5,h6
+  line-height: 1
+  @extend html
+
+// --- テキストコンテンツ
+
+// 引用(長文)
+blockquote
+  @extend html
+  quotes: none
+  &:before, &:after
+    content: ''
+    content: none
+
+// 定義リスト。キーと値のペアのリスト
+dl
+  @extend html
+
+// 定義リストのタイトル(複数タイトルに対して同一の説明がある場合には連続して使用)
+dt
+  @extend html
+
+// 定義リストのタイトルに対する説明(複数定義がある場合は複数使用)
+dd
+  @extend html
+  &>ul, &>ol, &>dl
+    margin-left: 1.0em
+
+
+// 順不同リスト
+ul
+  @extend html
+  list-style-type: none
+
+// 順序リスト
+ol
+  @extend html
+  list-style-type: none
+
+// リスト内要素。ul、ol、menuの子要素として利用
+li
+  @extend html
+  &>ul, &>ol, &>dl
+    margin-left: 1.0em
+
+// 図表を表す
+figure
+  @extend html
+  display: block
+
+// figure内で利用し、図表のキャプションを表す(必須ではない)
+figcaption
+  @extend html
+  display: block
+
+// ドキュメント内の中心となるコンテンツ
+main
+  @extend html
+  display: block
+
+// 段落
+p
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-style: normal
+  font-weight: normal
+  vertical-align: baseline
+  background: transparent
+  box-sizing: border-box
+  line-height: 1
+
+// 整形済みテキスト
+pre
+  @extend html
+
+// フローコンテンツのための汎用コンテナ。文書的な意味を持たない
+div
+  @extend html
+
+// 段落間の話題の転換、物語のシーンの区切り
+hr
+  margin: 0
+  padding: 0
+  border: 1px solid #999
+  display: block
+
+// --- インラインテキストセマンティクス
+
+// ハイパーリンク作成
+a
+  @extend p
+
+// 略語(と略語の完全な表現)。頭文字が単語化されていないケース
+abbr
+  @extend p
+//  @extend .inline-default
+//  text-decoration: underline
+//  cursor: help
+
+// 頭文字が単語化している場合
+acronym
+  @extend p
+//  @extend .inline-default
+//  text-decoration: underline
+//  cursor: help
+
+// 重要性に影響を与えず文体を変更する範囲を表す
+b
+  @extend p
+  font-weight: bold
+
+// テキストの書字方向が異なる範囲を表す
+//bdi
+
+// テキストの書字方向規則を上書き
+//bdo
+
+// 改行
+//br
+
+// 作品を参照(作品タイトルや作品を参照するためのURLを含む)
+//cite
+//  @extend .inline-default
+
+// プログラムコードなどを表す
+code
+  @extend p
+  font-family: monospace
+
+// value属性でコンピューターが処理できる値を定義
+data
+  @extend p
+
+// 用語の定義(p, section、dt、dd内で使用)。特定のフレーズを同一の定義として取り扱う
+dfn
+  @extend p
+
+// 特定の箇所を強調することで文脈上意味が変わるような文の中で、強調したいテキストに適用。
+em
+  @extend p
+
+// 非常に重要性の高いテキストに適用。文書全体が重要であれば、全てにたいしてstrongを適用。入れ子で利用可能
+strong
+  @extend p
+
+// 他のテキストと区別したほうが良い箇所(技術用語、外国語)
+i
+  @extend p
+
+// ユーザーの入力を表す(コマンドラインの入力など)
+kbd
+  @extend p
+
+// 参照を目的としてマークしたテキストを表す
+mark
+  @extend p
+  background-color: #ccc
+
+// インラインの、段落やセクションをまたがない短い引用
+q
+  @extend p
+  quotes: none
+  &:before, &:after
+    content: ''
+    content: none
+
+// sで指定した範囲の文書が正しいものではないことを明示する
+s
+  @extend p
+
+// コンピュータープログラムなどからの出力を表す
+samp
+  @extend p
+
+// 細目などの注釈を表す要素
+small
+  @extend p
+  font-size: small
+
+// 汎用的なインライン要素
+span
+  @extend p
+
+// 時刻、日付
+time
+  @extend p
+
+// 数式、プログラムコード中の変数
+// var
+//  @extend p
+
+// ルビ要素
+// ruby
+//  @extend p
+
+// ルビの読み方
+//rt
+//  @extend p
+
+// ルビの意味
+//rtc
+//  @extend p
+
+// ルビ表示に対応しないブラウザ向けの括弧表示
+//rp
+//  @extend p
+
+
+// H2Oの2のような下付きの文字(MathMLの利用を検討すべき)
+//sub
+
+// xの2乗の2のような上付きの文字(MathMLの利用を検討すべき)
+//sup
+
+// 下線。視覚的に下線をつけなければ固有名詞と判断できない箇所等
+//u
+
+// ブラウザが改行を行って良い位置を明示
+//wbr
+
+
+// --- マルチメディア
+img
+map
+area
+video
+audio
+  @extend html
+//track
+
+
+// 埋め込みコンテンツ
+embed
+object
+param
+source
+  @extend html
+
+// --- スクリプティング
+canvas
+  @extend html
+
+//noscript
+//script
+
+// --- 編集範囲の特定
+
+// 文書から削除された(正しくないとは異なる)範囲
+//del
+
+// 文書に追加された範囲
+//ins
+
+// テーブル
+table
+//  @extend html
+  border-collapse: collapse
+  border-spacing: 0
+  border: 1px solid #000
+
+td,th
+  @extend p
+  border: 1px solid #000
+
+caption
+  @extend p
+
+//tbody
+//thead
+//tfoot
+//tr
+//col
+//colgroup
+
+// フォーム
+form
+  @extend html
+
+fieldset
+  margin: 0
+  padding: 1.0em
+  border: 1px solid #999
+  //@extend html
+
+label
+  @extend p
+
+legend
+  @extend p
+
+optgroup
+option
+button
+select
+input
+textarea
+  @extend html
+  vertical-align: middle
+  border: 1px solid #999
+
+// output
+// progress
+// meter
+// keygen
+// datalist
+
+// インタラクティブ要素
+//details
+//dialog
+//menu
+//menuitem
+//summary
+
+// その他
+iframe
+  @extend html

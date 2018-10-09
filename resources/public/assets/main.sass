@@ -1,0 +1,400 @@
+$breakpoint-tablet: 980px
+$breakpoint-mobile: 640px
+
+@mixin mobile
+  @media (max-width: ($breakpoint-mobile))
+    @content
+@mixin tablet
+  @media (max-width: ($breakpoint-tablet))
+    @content
+html
+  font-size: 1.2em
+  @include mobile
+    font-size: 5vw
+
+body
+  background-color: #f7f7f7
+  color: #000
+  font-size: 80%
+
+.inner
+  padding: 20px
+@include tablet
+  .inner
+    padding: 0.5em
+@include mobile
+  .inner
+    padding: 0.5em
+
+  @include mobile
+    padding: 2vw
+
+h1,h2,h3,h4,h5,h6
+  font-weight: bold
+
+a
+  color: #2c2dd2
+  &:visited
+    color: #2c2dd2
+    //color: #21405a
+
+header
+  background-color: #fff
+  background: url("/assets/images/main-visual.jpg") no-repeat 0 0
+  background-size: contain
+  width: 100%
+  height: 0
+  padding-bottom: 16.666666%
+
+  h1
+    font-size: 2.5em
+    @include mobile
+      font-size: 6vw
+  a
+    color: #fff
+    text-decoration: none
+    &:visited
+      color: #fff
+  .feed-button
+    font-size: 2.5em
+
+@include mobile
+  header
+    position: fixed
+    top: 0
+    left: 0
+
+
+header
+  &>.inner
+    display: flex
+    justify-content: space-between
+    align-items: center
+    &>ul
+      display: flex
+      &>li
+        margin-right: 0.5em
+        @include mobile
+          margin-right: 2vw
+
+@include mobile
+  body
+    &>.inner
+      margin-top: 16.6666666%
+
+p, li
+  line-height: 1.45em
+
+
+
+
+code
+  font-size: 0.95em
+  font-family: "Bitstream Vera Sans Mono", monospace
+
+.breadcrumb
+  margin-bottom: 0.5em
+  li + li:before
+    font-family: "Font Awesome 5 Free"
+    content: "\f105"
+    margin: 0 0.5em
+    display: inline-block
+    font-weight: bold
+    font-style: normal
+    font-variant: normal
+    text-rendering: auto
+    line-height: 1
+@include mobile
+  .breadcrumb
+    margin-bottom: 2vw
+.menu
+  width: 100%
+  margin: 0 0 0.5em 0
+  @include mobile
+    margin: 0 0 2vw 0
+  &>ul
+    display: flex
+    align-items: center
+    justify-content: left
+    &>li
+      margin-right: 0.5em
+      font-size: 1.5em
+      @include mobile
+        margin-right: 2vw
+        font-size: 6vw
+
+footer
+  margin-top: 2.0em
+  background-color: #333
+  color: #fff
+  text-align: center
+  @include mobile
+    margin-top: 5vw
+
+.copyright
+  font-size: 0.8em
+  @include mobile
+    font-size: 3vw
+
+.main-visual
+  width: 100%
+
+// コンテンツ領域(main, asideのコンテナ)
+.contents
+  display: flex
+  justify-content: space-between
+  align-items: top
+  width: 980px
+  margin: 0 auto
+@include tablet
+  .contents
+    width: 100%
+@include mobile
+  .contents
+    width: 100%
+    display: block
+
+// main, asideのスタイル
+.contents
+  &>main
+    width: 660px
+  &>aside
+    width: 300px
+
+@include tablet
+  .contents
+    &>main
+      width: 70%
+      margin-right: 5%
+    &>aside
+      width: 25%
+      h1,h2,h3,h4,h5,h6
+        color: #666
+        margin: 0.5em 0
+@include mobile
+  .contents
+    &>main
+      width: 100%
+      margin-right: 0
+      margin-bottom: 5vw
+    &>aside
+      width: 100%
+      h1,h2,h3,h4,h5,h6
+        margin: 4vw 0
+
+// 記事
+.article
+  &>main
+    padding: 1.0em
+    box-shadow: rgba(0,0,0,.30) 0 0 1px
+    background-color: #fff
+    &>section
+      &>h1
+        font-size: 1.5em
+        color: #666
+        margin-bottom: 2.0em
+  h2,h3,h4,h5,h6
+    margin: 0.8em 0
+  pre
+    border: 1px solid #666
+    margin: 1.0em 0
+    white-space: pre-wrap
+  li
+    margin-left: 1.0em
+    list-style-type: disc
+  dd
+    margin-left: 1.0em
+  table
+    width: 100%
+    padding-bottom: 1.0em
+    border-collapse: collapse
+    display: block
+    th, td
+      padding: 0.2em 0.5em
+      line-height: 1.5em
+
+    td
+      border-width: 1px 0
+
+    th
+      border-width: 1px 0
+      font-weight: bold
+
+@include mobile
+  .article
+    &>main
+      padding: 6vw 2vw
+      &>section
+        &>h1
+          margin-bottom 8vw
+    h2,h3,h4,h5,h6
+      margin: 4vw 0
+    pre
+      //padding: 2vw
+      margin: 4vw 0
+    table
+      width: 100%
+      padding-bottom: 4vw
+      th, td
+        padding: 2vw 4vw
+
+
+
+.timestamp
+  color: #666
+  text-align: right
+  font-family: monospace
+  font-weight: bold
+  margin-bottom: 1.0em
+  i
+    margin-right: 0.2em
+
+@include mobile
+  .timestamp
+    margin-bottom: 4vw
+
+.article-list
+  &>li
+    display: flex
+    align-items: start
+    justify-content: space-between
+    width: 100%
+    margin-bottom: 0.5em
+    padding: 1.0em
+    background-color: #fff
+    box-shadow: rgba(0,0,0,.30) 0 0 1px
+    .thumbnail
+      width: 20%
+      height: 20%
+      img
+        width: 100%
+        height: auto
+        object-fit: contain
+    .article-info
+      padding-left: 1.0em
+      width:  100%
+    .title
+      a
+        font-size: 1.2em
+        font-weight: bold
+      @incldue tablet
+        a
+          font-size: 1.0em
+      @include mobile
+        a
+          font-size: 1.0em
+    .description
+      margin-bottom: 0.8em
+
+@include mobile
+  .article-list
+    &>li
+      padding: 2vw
+      margin-bottom: 3vw
+
+.tag-list
+
+  display: flex
+  justify-content: right
+  font-size: 0.9em
+  &>li
+    margin-right: 0.5em
+    a
+      color: #333
+    a:hover
+      text-decoration: none
+
+#drawer-content
+  &>section
+    padding: 0 0 0.8em 0
+  h1
+    border: 0 solid #666
+    padding: 0 0 0.2em 0
+    border-bottom-width: 1px
+
+
+@include mobile
+  #drawer-content
+    &>section
+      padding: 8vw 8vw 4vw 8vw
+
+
+.side-list
+  &>li
+    margin-bottom: 0.5em
+
+
+// ドロワーメニュースタイル(モバイル表示限定)
+#drawer-open, #drawer-input
+  display: none
+
+
+@include mobile
+  #drawer
+    position: relative
+
+  .drawer-hide
+    display: none
+
+  #drawer-open
+    display: block
+    width: 5vw
+    height: 100%
+    font-size: 2.5em
+    color: #fff
+    cursor: pointer
+
+  #drawer-open span, #drawer-open span:before, #drawer-open span:after
+    position: absolute
+    height: 3px
+    width: 25px
+    border-radius: 3px;
+    background: #555
+    display: block
+    content: ''
+    cursor: pointer
+
+  #drawer-open span:before
+    bottom: -8px;
+
+  #drawer-open span:after
+    bottom: -16px;
+
+
+  /*閉じる用の薄黒カバー*/
+  #drawer-close
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+
+  /*中身*/
+  #drawer-content
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 60vw;/*右側に隙間を作る*/
+    max-width: 75vw;/*最大幅*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+
+  /*チェックが入ったらもろもろ表示*/
+  #drawer-input:checked ~ #drawer-close
+    display: block;/*カバーを表示*/
+    opacity: .5;
+
+  #drawer-input:checked ~ #drawer-content
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
